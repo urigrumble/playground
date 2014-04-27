@@ -69,7 +69,7 @@ def pretty_json(str):
 def dump_to_file(filepath, content):	
 	""" Helper method to dump content into file. """
 	file = open(filepath, 'w')
-	file.write(content)
+	file.write(content.encode('utf-8'))
 	file.close()
 
 def target_change(watcher, old_content, new_content):
@@ -82,7 +82,7 @@ def target_change(watcher, old_content, new_content):
 	if top_news_items_added or top_news_items_deleted or top_news_items_changed:
 		watcher.stop()
 		print "Target changed on {0}. Prev size:{1}, Curr size:{2}".format(datetime.datetime.now(),len(old_content),len(new_content))
-		dump_to_file("C:\\Users\\Uri\\Desktop\\getSItemsI.txt", pretty_json(item))
+		dump_to_file("C:\\Users\\Uri\\Desktop\\getSItemsI.txt", pretty_json(change))
 
 def source_change(watcher, old_content, new_content):
 	global top_news_items

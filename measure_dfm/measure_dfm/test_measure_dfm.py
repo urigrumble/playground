@@ -3,7 +3,7 @@ import measure_dfm
 
 class test_measure_dfm(unittest.TestCase):
 	def test_dump_to_file(self):
-		measure_dfm.dump_to_file("C:\\Users\\Uri\\Desktop\\test.txt", "test")
+		measure_dfm.dump_to_file("C:\\Users\\Uri\\Desktop\\test.txt",  u'\u2014'.encode('utf-8'))
 		self.assertEqual(True, True)
 
 	def test_pretty_xml(self):
